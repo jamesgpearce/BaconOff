@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>BaconOff</title>
+    <meta property="og:title" content="BaconOff"/>
+    <meta property="og:type" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="fb:app_id" content="<%= app.id %>"/>
+
+    <link rel="stylesheet" href="/css/baconoff.css">
+
+    <script src="/lib/sencha-touch-debug.js"></script>
+
+    <script>
+      TOKEN = '<%= token %>';
+    </script>
+
+    <script src="/app/app.js"></script>
+
+    <script src="/app/stores/friends.js"></script>
+    <script src="/app/stores/actors.js"></script>
+    <script src="/app/stores/movies.js"></script>
+    <script src="/app/stores/games.js"></script>
+
+    <script src="/app/views/home.js"></script>
+    <script src="/app/views/friends.js"></script>
+    <script src="/app/views/chooseActor.js"></script>
+    <script src="/app/views/waiting.js"></script>
+
+  </head>
+  <body>
+    <div class="bacon-beacon-wrap">
+      <div class="bacon-beacon">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+    </div>
+    <div id="fb-root"></div>
+    <script>
+      (function() {
+        var e = document.createElement('script'); e.async = true;
+            e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+            document.getElementById('fb-root').appendChild(e);
+            }());
+    </script>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: '279198655446481',
+          status: true,
+          cookie: true,
+          xfbml: true,
+          oauth: true
+        });
+
+          // FB.Event.subscribe('auth.statusChange', handleStatusChange);
+      };
+    </script>
+  </body>
+</html>

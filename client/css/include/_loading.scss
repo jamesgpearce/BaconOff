@@ -1,0 +1,72 @@
+$max-loader-size: 180px;
+$start-loader-size: 100px;
+
+.bacon-beacon-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.bacon-beacon {
+    background: url("../img/bacon.png") center center no-repeat;
+    -webkit-background-size: $start-loader-size;
+    width: $max-loader-size;
+    height: $max-loader-size;
+    position: absolute;
+    top: -$max-loader-size/2;
+    left: -$max-loader-size/2;
+
+    -webkit-animation: head-tilt .7s infinite alternate;
+
+    div {
+        -webkit-animation-name: beacon-pulse;
+        -webkit-animation-duration: 1.5s;
+        -webkit-animation-iteration-count: infinite;
+
+        display: block;
+        position: absolute;
+        border: 5px solid rgba(#fff, .5);
+        @include border-radius($max-loader-size/2);
+        width: $max-loader-size;
+        height: $max-loader-size;
+        @include opacity(0);
+
+        &:nth-child(2) {
+            -webkit-animation-delay: .5s;        
+        }
+        &:nth-child(3) {
+            -webkit-animation-delay: 1s;
+        }
+    }
+}
+
+.x-loading-msg {
+    display: none !important;
+}
+
+.x-mask-loading {
+    position: relative;
+}
+
+@-webkit-keyframes head-tilt {
+    0%   {
+        @include rotate(-4deg);
+        -webkit-animation-timing-function: ease-in;
+    }
+    100% {
+        @include rotate(3deg);
+        -webkit-animation-timing-function: ease-out;
+    }
+}
+
+@-webkit-keyframes beacon-pulse {
+    0%   {
+        opacity: 1;
+        @include scale(.5)
+    }
+    100% {
+        opacity: 0;
+        border-width: 1px;
+        @include scale(1);
+    }
+}

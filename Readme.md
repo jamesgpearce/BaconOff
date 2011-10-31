@@ -1,0 +1,1 @@
+BaconOff - a sample Facebook app hurredly built with Sencha Touch, node, IMDB, etc etc

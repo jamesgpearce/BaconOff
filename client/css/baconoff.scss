@@ -1,0 +1,155 @@
+// Colors
+$color-info: #333;
+
+
+// ST Theme Overrides
+$base-color: #F2E49B;
+$list-active-gradient: matte;
+$list-header-bg-color: #ccc;
+
+$confirm-color: #A3BF3B;
+
+
+// Optimization
+// $include-default-uis: false;
+$include-default-icons: false;
+
+$border-color: #000;
+
+@import url(http://fonts.googleapis.com/css?family=Cherry+Cream+Soda|Ubuntu:700italic,300,700,300italic);
+
+@import 'sencha-touch/default/all';
+
+@import 'include/loading';
+
+@include sencha-panel;
+@include sencha-buttons;
+@include sencha-sheet;
+@include sencha-picker;
+@include sencha-tabs;
+@include sencha-toolbar;
+@include sencha-toolbar-forms;
+@include sencha-carousel;
+@include sencha-indexbar;
+@include sencha-list;
+@include sencha-list-paging;
+@include sencha-list-pullrefresh;
+@include sencha-layout;
+@include sencha-form;
+@include sencha-msgbox;
+@include sencha-loading-spinner;
+
+@import 'include/typography';
+
+
+body {
+    @extend .font-ubuntu;
+    background-color: #333;
+}
+
+.x-fullscreen {
+    // background-color: #333;
+}
+
+.x-toolbar-title {
+    @extend .font-cherrycream;
+}
+
+.oops {
+    padding: 20px;
+    text-align: center;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.friends-list {
+    .x-list-item-body {
+        @include display-box;
+        @include box-orient(horizontal);
+    }
+    .friend-avatar {
+        width: 50px;
+        height: 50px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: rgba(#333, .1);
+        -webkit-background-size: cover;
+        margin: -.5em .25em -.5em -.8em;
+    }
+}
+
+.wins_losses {
+    @include display-box;
+    @include box-orient(horizontal);
+    position: relative;
+
+    div {
+        @include box-flex(1);
+        @include background-gradient($color-info, 'recessed');
+        @include color-by-background($color-info, 70%);
+        @include text-shadow(rgba(#000, .5) 0 1px 3px);
+        @include box-shadow(rgba(#000, .3) 0 0 15px inset);
+
+        text-align: center;
+        border-bottom: 1px solid $border-color;
+        padding: 10px;
+
+        &:first-child {
+            border-right: 1px solid $border-color;
+        }
+    }
+
+    h4 {
+        // margin-top: 15px;
+        font-size: .8em;
+        font-weight: bold;
+        line-height: 1.5em;
+        @include text-shadow(rgba(#000, .6) 0 0 -1px);
+        @include color-by-background($color-info, 30%);
+    }
+
+    span {
+        line-height: .9em;
+        font-size: 4em;
+        font-weight: bold;
+    }
+
+
+}
+
+.baconcenter {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    z-index: 15;
+
+    img {
+        width: 70px;
+        height: 70px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.home {
+
+    background-color: lighten($base-color, 15%);
+    @include color-by-background(desaturate($base-color, 20), 50%);
+
+    h2 {
+        font-weight: bold;
+        padding: 20px 10px 4px;
+    }
+    .x-button {
+        margin: 10px;
+    }
+    .x-list {
+        border-top: 1px solid #ccc;
+    }
+    .x-list-item {
+        background-color: rgba(#fff, 0);
+    }
+}
